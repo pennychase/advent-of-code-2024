@@ -6,14 +6,9 @@ module Day1 where
 import Data.List (sort)
 import qualified Data.MultiSet as MS
 import qualified Data.Text as T
-import qualified Data.Text.Read as T
 import qualified Data.Text.IO as TIO
 
-textToInt :: T.Text -> Int
-textToInt str = 
-    case (T.decimal str) of
-        Right (n,_) -> n
-        Left _ -> 0
+import Lib
 
 linesToLists :: [T.Text] -> ([Int], [Int])
 linesToLists lines = unzip $ map ((\[x, y] -> (textToInt x, textToInt y)) . T.words) lines
